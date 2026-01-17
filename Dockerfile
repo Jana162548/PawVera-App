@@ -1,9 +1,12 @@
-FROM dart:stable AS build
+FROM mobiledevops/flutter-sdk-image:latest
+
 WORKDIR /app
+
+COPY pubspec.yaml .
+RUN flutter pub get
+
 COPY . .
-RUN dart pub get
-RUN dart compile exe bin/server.dart -o bin/server
-FROM scratch
-COPY --from=build /runtime/ /
-COPY --from=build /app/bin/server /app/bin/
-CMD ["/app/bin/server"]
+
+RUN flutter test
+
+RUN flutter build apk --release
