@@ -9,8 +9,9 @@ void main() {
       expect(logic.validateLogin('user@pawvera.com', '123456'), true);
     });
 
-    test('Add Pet Logic Verification', () {
+   test('Add Pet Logic Verification', () {
       expect(logic.validateAddPet('Buddy', 'Golden Retriever'), true);
+      expect(logic.validateAddPet('', ''), false);
     });
   });
 }
