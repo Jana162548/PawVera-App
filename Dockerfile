@@ -13,8 +13,7 @@ COPY . .
 RUN flutter test
 RUN flutter analyze
 
-RUN flutter build web
-
+RUN flutter build web --release
 FROM nginx:alpine
 COPY --from=0 /app/build/web /usr/share/nginx/html
 
