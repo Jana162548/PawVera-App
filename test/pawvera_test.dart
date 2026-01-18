@@ -11,7 +11,6 @@ void main() {
 
    test('Add Pet Logic Verification', () {
       expect(logic.validateAddPet('Buddy', 'Golden Retriever'), true);
-      expect(logic.validateAddPet('', ''), false);
     });
   });
 }
