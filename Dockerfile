@@ -1,7 +1,7 @@
 FROM mobiledevops/flutter-sdk-image:latest
 
 WORKDIR /app
-
+RUN git config --global --add safe.directory /home/mobiledevops/.flutter-sdk
 COPY pubspec.yaml .
 RUN flutter pub get
 
